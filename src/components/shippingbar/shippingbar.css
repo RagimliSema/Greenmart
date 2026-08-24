@@ -1,0 +1,11 @@
+.shipping-bar {
+  background: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.shipping-bar .highlight {
+  font-weight: 700;
+}

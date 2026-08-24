@@ -1,0 +1,588 @@
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 420px;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   OVERLAY
+================================================== */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: transparent;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   HERO CONTENT
+================================================== */
+
+
+
+.hero-content {
+    position: absolute;
+
+    top: 50%;
+    right: 9%;
+
+    transform: translateY(-50%);
+
+    width: min(520px, 42vw);
+
+    color: #ffffff;
+
+    text-align: right;
+
+    z-index: 3;
+}
+
+
+/* ==================================================
+   HERO TITLE
+================================================== */
+
+.hero-title {
+    margin: 0 0 16px;
+
+    font-size: clamp(32px, 3.2vw, 44px);
+
+    line-height: 1.18;
+
+    font-weight: 400;
+
+    letter-spacing: -0.5px;
+
+    color: #ffffff;
+}
+
+.hero-title strong {
+    font-weight: 700;
+}
+
+
+/*
+ * Hər sətir ayrıca block olur.
+ */
+
+.hero-title-first,
+.hero-title-second {
+    display: block;
+}
+
+
+/* ==================================================
+   1-Cİ YAZI
+   YUXARIDAN AŞAĞI GƏLİR
+================================================== */
+
+.hero-title-first {
+    animation: titleFromTop 0.65s ease-out 0.05s both;
+}
+
+
+/* ==================================================
+   2-Cİ YAZI
+   AŞAĞIDAN YUXARI GƏLİR
+================================================== */
+
+.hero-title-second {
+    animation: titleFromBottom 0.65s ease-out 0.35s both;
+}
+
+
+/* ==================================================
+   DESCRIPTION
+================================================== */
+
+.hero-description {
+    margin: 0 0 26px;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    font-weight: 400;
+
+    color: #ffffff;
+
+    animation: descriptionFromBottom 0.6s ease-out 0.65s both;
+}
+
+
+/* ==================================================
+   SHOP NOW BUTTON
+================================================== */
+
+.shop-now-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 120px;
+    height: 42px;
+
+    padding: 0 28px;
+
+    border: none;
+    border-radius: 4px;
+
+    background: #f4ad3d;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    animation: buttonFromBottom 0.6s ease-out 0.95s both;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.shop-now-btn:hover {
+    background: #e79b25;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   ARROWS
+================================================== */
+
+/*
+ * Böyük ağ dairə.
+ *
+ * Videodakı görünüşə daha yaxın olması üçün
+ * oxları əvvəlkindən böyük etdik.
+ */
+
+.hero-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    width: 58px;
+    height: 58px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/*
+ * Oxun öz ölçüsü.
+ */
+
+.hero-arrow span {
+    display: block;
+
+    font-size: 40px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    margin-top: -4px;
+}
+
+
+/*
+ * Sol ox
+ */
+
+.hero-arrow-left {
+    left: 22px;
+}
+
+
+/*
+ * Sağ ox
+ */
+
+.hero-arrow-right {
+    right: 22px;
+}
+
+
+/*
+ * Hover
+ */
+
+.hero-arrow:hover {
+    background: #f4ad3d;
+
+    color: #ffffff;
+
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+
+/*
+ * Hover zamanı sol oxun dairəsi
+ */
+
+.hero-arrow-left:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+
+/*
+ * Hover zamanı sağ oxun dairəsi
+ */
+
+.hero-arrow-right:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+
+/* ==================================================
+   DOTS
+================================================== */
+
+.hero-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 5;
+}
+
+
+.dot {
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.dot.active {
+    background: #ffffff;
+
+    transform: scale(1.2);
+}
+
+
+/* ==================================================
+   ANIMATIONS
+================================================== */
+
+
+/*
+ * 1-Cİ YAZI
+ *
+ * Yuxarıdan aşağı gəlir.
+ */
+
+@keyframes titleFromTop {
+    from {
+        opacity: 0;
+
+        transform: translateY(-45px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/*
+ * 2-Cİ YAZI
+ *
+ * Aşağıdan yuxarı gəlir.
+ */
+
+@keyframes titleFromBottom {
+    from {
+        opacity: 0;
+
+        transform: translateY(45px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/*
+ * Description
+ *
+ * Aşağıdan yuxarı gəlir.
+ */
+
+@keyframes descriptionFromBottom {
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/*
+ * Shop Now
+ *
+ * Ən sonda aşağıdan yuxarı gəlir.
+ */
+
+@keyframes buttonFromBottom {
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 992px) {
+
+    .hero {
+        height: 390px;
+    }
+
+
+    .hero-content {
+        right: 8%;
+
+        width: 45vw;
+    }
+
+
+    .hero-title {
+        font-size: 34px;
+    }
+
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+
+    .hero-arrow {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .hero-arrow span {
+        font-size: 36px;
+    }
+
+
+    .hero-arrow-left {
+        left: 16px;
+    }
+
+
+    .hero-arrow-right {
+        right: 16px;
+    }
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        height: 360px;
+
+        background-position: center center;
+    }
+
+
+    .hero-content {
+        right: auto;
+        left: 50%;
+
+        width: calc(100% - 100px);
+
+        max-width: 500px;
+
+        transform: translate(-50%, -50%);
+
+        text-align: center;
+    }
+
+
+    .hero-title {
+        font-size: 28px;
+
+        line-height: 1.2;
+    }
+
+
+    .hero-description {
+        font-size: 14px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .shop-now-btn {
+        min-width: 110px;
+
+        height: 40px;
+
+        padding: 0 22px;
+    }
+
+
+    .hero-arrow {
+        width: 46px;
+        height: 46px;
+    }
+
+
+    .hero-arrow span {
+        font-size: 32px;
+    }
+
+
+    .hero-arrow-left {
+        left: 10px;
+    }
+
+
+    .hero-arrow-right {
+        right: 10px;
+    }
+
+
+    .hero-dots {
+        bottom: 18px;
+    }
+}
+
+
+/* ==================================================
+   SMALL MOBILE
+================================================== */
+
+@media (max-width: 480px) {
+
+    .hero {
+        height: 330px;
+    }
+
+
+    .hero-content {
+        width: calc(100% - 80px);
+    }
+
+
+    .hero-title {
+        font-size: 24px;
+    }
+
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+
+    .hero-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .hero-arrow span {
+        font-size: 28px;
+    }
+}
