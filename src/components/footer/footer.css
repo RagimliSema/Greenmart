@@ -247,11 +247,18 @@
 /* =========================
    RESPONSIVE
 ========================= */
+
 @media (max-width: 900px) {
+
     .footer-main {
-        padding-left: 20px;
-        padding-right: 20px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+
+        padding: 40px 20px 35px;
+
         grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 30px 20px;
     }
 
     .footer-about {
@@ -259,32 +266,133 @@
     }
 
     .footer-bottom {
+        width: auto;
+        max-width: none;
+
         margin-left: 20px;
         margin-right: 20px;
+
+        padding: 18px 0;
+    }
+
+    .footer-payments img {
+        width: 220px;
     }
 }
 
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 650px) {
+
     .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 35px 25px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+
+        padding: 35px 15px 30px;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 30px 20px;
     }
 
     .footer-about {
         grid-column: 1 / -1;
     }
 
+    .footer-col {
+        min-width: 0;
+    }
+
+    .footer-logo {
+        width: 150px;
+    }
+
+    .footer-about-text {
+        font-size: 13px;
+    }
+
+    .footer-contact li {
+        font-size: 12px;
+    }
+
+    .footer-col h4 {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+        font-size: 12px;
+    }
+
+    .footer-newsletter-text {
+        font-size: 12px;
+    }
+
+    .footer-email-input {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .footer-subscribe-btn {
+        font-size: 12px;
+        padding: 10px 18px;
+    }
+
+
+    /* =========================
+       BOTTOM
+    ========================= */
+
     .footer-bottom {
+        width: 100%;
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 18px 15px;
+
         flex-direction: column;
         align-items: flex-start;
+
         gap: 15px;
+    }
+
+    .footer-bottom p {
+        font-size: 12px;
+    }
+
+    .footer-payments {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .footer-payments img {
+        width: 200px;
+        max-width: 100%;
     }
 }
 
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
 @media (max-width: 450px) {
+
     .footer-main {
+        width: 100%;
+        padding: 30px 10px 25px;
+
         grid-template-columns: 1fr;
-        padding: 40px 20px 30px;
+
+        gap: 25px;
     }
 
     .footer-about {
@@ -292,15 +400,81 @@
     }
 
     .footer-logo {
-        width: 145px;
+        width: 140px;
     }
 
+    .footer-about-text {
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    .footer-contact li {
+        font-size: 12px;
+        gap: 7px;
+    }
+
+    .footer-socials {
+        gap: 8px;
+    }
+
+    .footer-socials a {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .footer-col h4 {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 7px;
+    }
+
+    .footer-col ul li a {
+        font-size: 12px;
+    }
+
+    .footer-newsletter-text {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .footer-email-input {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .footer-subscribe-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+
+    /* =========================
+       BOTTOM
+    ========================= */
+
     .footer-bottom {
-        margin: 0;
-        padding: 20px;
+        padding: 16px 10px;
+
+        gap: 12px;
+    }
+
+    .footer-bottom p {
+        font-size: 11px;
+        line-height: 1.5;
     }
 
     .footer-payments {
-        flex-wrap: wrap;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .footer-payments img {
+        width: 180px;
+        max-width: 100%;
     }
 }

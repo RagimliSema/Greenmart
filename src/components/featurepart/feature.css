@@ -51,3 +51,131 @@
   border-right: none;   
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .features-bar {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+
+        padding: 35px 20px;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px 0;
+    }
+
+    .feature-item {
+        width: 100%;
+        box-sizing: border-box;
+
+        padding: 0 20px;
+
+        border-right: 1px solid #e5e5e5;
+    }
+
+    /* 2-ci və 4-cü elementlərin sağ xətti olmasın */
+    .feature-item:nth-child(2),
+    .feature-item:nth-child(4) {
+        border-right: none;
+    }
+
+    .feature-icon {
+        font-size: 40px;
+    }
+
+    .feature-title {
+        font-size: 18px;
+    }
+
+    .feature-text {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .features-bar {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+
+        padding: 30px 10px;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px 0;
+    }
+
+    .feature-item {
+        padding: 0 12px;
+
+        gap: 6px;
+    }
+
+    .feature-icon {
+        font-size: 36px;
+        margin-bottom: 2px;
+    }
+
+    .feature-title {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    .feature-text {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+    .features-bar {
+        padding: 25px 5px;
+
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-item {
+        padding: 0 10px;
+
+        border-right: none;
+        border-bottom: 1px solid #e5e5e5;
+
+        padding-bottom: 18px;
+    }
+
+    .feature-item:last-child {
+        border-bottom: none;
+    }
+
+    .feature-icon {
+        font-size: 34px;
+    }
+
+    .feature-title {
+        font-size: 15px;
+    }
+
+    .feature-text {
+        font-size: 12px;
+    }
+}
+

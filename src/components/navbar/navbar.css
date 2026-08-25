@@ -532,7 +532,7 @@
 
         position: fixed;
 
-        top: 96px;
+        top: 52px;
         left: 0;
         right: 0;
         bottom: 0;
@@ -566,14 +566,14 @@
 
         position: fixed;
 
-        top: 96px;
+        top: 52px;
         left: 0;
 
         width: min(440px, 50vw);
 
         min-width: 320px;
 
-        height: calc(100vh - 96px);
+        height: calc(100vh - 52px);
 
         display: flex;
         flex-direction: column;
@@ -679,6 +679,9 @@
         background: #fff;
 
         scrollbar-width: thin;
+
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -754,6 +757,41 @@
         height: 12px;
 
         color: #777;
+    }
+
+
+    /* =========================
+       MENU ITEM RIGHT SIDE
+       (badge + chevron together)
+    ========================= */
+
+    .mobile-menu-right {
+
+        display: flex;
+        align-items: center;
+
+        gap: 8px;
+    }
+
+
+    .mobile-menu-badge {
+
+        min-width: 20px;
+        height: 20px;
+
+        padding: 0 6px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #f4f6f8;
+        color: #777;
+
+        border-radius: 50%;
+
+        font-size: 11px;
+        font-weight: 600;
     }
 
 
@@ -834,6 +872,47 @@
         color: #4caf50;
     }
 
+
+    /* =========================
+       SOCIAL ICONS (drawer footer)
+    ========================= */
+
+    .mobile-drawer-social {
+
+        margin-top: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 26px;
+
+        height: 56px;
+
+        border-top: 1px solid #e5e5e5;
+
+        flex-shrink: 0;
+    }
+
+
+    .mobile-drawer-social a {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: #777;
+
+        font-size: 15px;
+
+        transition: color 0.2s ease;
+    }
+
+
+    .mobile-drawer-social a:hover {
+        color: #4caf50;
+    }
+
 }
 
 
@@ -876,6 +955,19 @@
 
         font-size: 13px;
 
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .mobile-drawer-overlay {
+        top: 50px;
+    }
+
+    .mobile-drawer {
+        top: 50px;
+        height: calc(100vh - 50px);
     }
 
 }

@@ -1,11 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import './navbar.css';
 
 import {
-    FaBars,
-    FaThLarge,
     FaChevronRight,
-    FaArrowLeft
+    FaArrowLeft,
+    FaFacebookF,
+    FaInstagram,
+    FaLinkedinIn,
+    FaPinterestP
 } from "react-icons/fa";
 
 import promoFruit from '../../assets/image/banner-magemenu-01.jpg';
@@ -16,7 +18,7 @@ import supplier2 from '../../assets/image/brand-03.jpg';
 import supplier3 from '../../assets/image/brand-05.jpg';
 
 
-function Navbar() {
+function Navbar({ mobileOpen, mobileTab, setMobileTab, closeMobileMenu }) {
 
     /* =========================
        DESKTOP STATES
@@ -29,11 +31,10 @@ function Navbar() {
 
 
     /* =========================
-       MOBILE STATES
+       MOBILE SUBMENU STATE
+       (yalnız drawer daxilində istifadə olunur)
     ========================= */
 
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const [mobileTab, setMobileTab] = useState('menu');
     const [mobileSubmenu, setMobileSubmenu] = useState(null);
 
 
@@ -71,29 +72,21 @@ function Navbar() {
 
 
     /* =========================
-       MOBILE MENU
+       MOBILE SUBMENU TOGGLE
     ========================= */
-
-    const openMobileMenu = (tab) => {
-
-        setMobileTab(tab);
-        setMobileOpen(true);
-        setMobileSubmenu(null);
-    };
-
-
-    const closeMobileMenu = () => {
-
-        setMobileOpen(false);
-        setMobileSubmenu(null);
-    };
-
 
     const toggleMobileSubmenu = (name) => {
 
         setMobileSubmenu(
             mobileSubmenu === name ? null : name
         );
+    };
+
+
+    const handleCloseMobileMenu = () => {
+
+        closeMobileMenu();
+        setMobileSubmenu(null);
     };
 
 
@@ -112,6 +105,19 @@ function Navbar() {
         return () => {
             document.body.style.overflow = '';
         };
+
+    }, [mobileOpen]);
+
+
+    /* =========================
+       DRAWER BAĞLANANDA SUBMENU RESET
+    ========================= */
+
+    useEffect(() => {
+
+        if (!mobileOpen) {
+            setMobileSubmenu(null);
+        }
 
     }, [mobileOpen]);
 
@@ -414,30 +420,15 @@ function Navbar() {
                             <div className="supplier-grid">
 
                                 <div className="supplier-item">
-
-                                    <img
-                                        src={supplier1}
-                                        alt="Supplier 1"
-                                    />
-
+                                    <img src={supplier1} alt="Supplier 1" />
                                 </div>
 
                                 <div className="supplier-item">
-
-                                    <img
-                                        src={supplier2}
-                                        alt="Supplier 2"
-                                    />
-
+                                    <img src={supplier2} alt="Supplier 2" />
                                 </div>
 
                                 <div className="supplier-item">
-
-                                    <img
-                                        src={supplier3}
-                                        alt="Supplier 3"
-                                    />
-
+                                    <img src={supplier3} alt="Supplier 3" />
                                 </div>
 
                             </div>
@@ -475,51 +466,8 @@ function Navbar() {
 
 
             {/* =====================================================
-                MOBILE NAVBAR
-            ===================================================== */}
-
-            <nav className="mobile-navbar">
-
-                <button
-                    className={`mobile-nav-tab ${
-                        mobileOpen &&
-                        mobileTab === 'menu'
-                            ? 'active'
-                            : ''
-                    }`}
-                    onClick={() => openMobileMenu('menu')}
-                >
-
-                    <FaBars />
-
-                    <span>Menu</span>
-
-                </button>
-
-
-                <button
-                    className={`mobile-nav-tab ${
-                        mobileOpen &&
-                        mobileTab === 'categories'
-                            ? 'active'
-                            : ''
-                    }`}
-                    onClick={() =>
-                        openMobileMenu('categories')
-                    }
-                >
-
-                    <FaThLarge />
-
-                    <span>Categories</span>
-
-                </button>
-
-            </nav>
-
-
-            {/* =====================================================
                 MOBILE DRAWER
+                (yalnız Header-dəki ☰ ilə açılır — App.jsx-dən idarə olunur)
             ===================================================== */}
 
             {mobileOpen && (
@@ -528,13 +476,13 @@ function Navbar() {
 
                     <div
                         className="mobile-drawer-overlay"
-                        onClick={closeMobileMenu}
+                        onClick={handleCloseMobileMenu}
                     ></div>
 
 
                     <aside className="mobile-drawer">
 
-                        {/* DRAWER HEADER */}
+                        {/* DRAWER HEADER TABS */}
 
                         <div className="mobile-drawer-tabs">
 
@@ -549,11 +497,7 @@ function Navbar() {
                                     setMobileSubmenu(null);
                                 }}
                             >
-
-                                <FaBars />
-
                                 <span>Menu</span>
-
                             </button>
 
 
@@ -568,11 +512,7 @@ function Navbar() {
                                     setMobileSubmenu(null);
                                 }}
                             >
-
-                                <FaThLarge />
-
                                 <span>Categories</span>
-
                             </button>
 
                         </div>
@@ -586,6 +526,12 @@ function Navbar() {
 
                             <div className="mobile-menu-content">
 
+                                {!mobileSubmenu && (
+                                    <div className="mobile-drawer-title">
+                                        Menu
+                                    </div>
+                                )}
+
                                 {mobileSubmenu && (
 
                                     <button
@@ -594,13 +540,8 @@ function Navbar() {
                                             setMobileSubmenu(null)
                                         }
                                     >
-
                                         <FaArrowLeft />
-
-                                        <span>
-                                            {mobileSubmenu}
-                                        </span>
-
+                                        <span>{mobileSubmenu}</span>
                                     </button>
 
                                 )}
@@ -612,12 +553,17 @@ function Navbar() {
 
                                         <button className="mobile-menu-item active-item">
                                             <span>Home</span>
+                                            <FaChevronRight />
                                         </button>
 
 
-                                        <button className="mobile-menu-item">
+                                        <button
+                                            className="mobile-menu-item"
+                                            onClick={() =>
+                                                toggleMobileSubmenu('Shop')
+                                            }
+                                        >
                                             <span>Shop</span>
-
                                             <FaChevronRight />
                                         </button>
 
@@ -628,17 +574,22 @@ function Navbar() {
                                                 toggleMobileSubmenu('Pages')
                                             }
                                         >
-
                                             <span>Pages</span>
 
-                                            <FaChevronRight />
-
+                                            <span className="mobile-menu-right">
+                                                <span className="mobile-menu-badge">4</span>
+                                                <FaChevronRight />
+                                            </span>
                                         </button>
 
 
-                                        <button className="mobile-menu-item">
+                                        <button
+                                            className="mobile-menu-item"
+                                            onClick={() =>
+                                                toggleMobileSubmenu('Vegetables')
+                                            }
+                                        >
                                             <span>Vegetables</span>
-
                                             <FaChevronRight />
                                         </button>
 
@@ -649,11 +600,12 @@ function Navbar() {
                                                 toggleMobileSubmenu('Blog')
                                             }
                                         >
-
                                             <span>Blog</span>
 
-                                            <FaChevronRight />
-
+                                            <span className="mobile-menu-right">
+                                                <span className="mobile-menu-badge">3</span>
+                                                <FaChevronRight />
+                                            </span>
                                         </button>
 
 
@@ -666,53 +618,73 @@ function Navbar() {
                                 )}
 
 
-                                {/* PAGES */}
+                                {/* SHOP SUBMENU */}
 
-                                {mobileSubmenu === 'Pages' && (
+                                {mobileSubmenu === 'Shop' && (
 
                                     <div className="mobile-submenu">
-
-                                        <a href="#">
-                                            About Us
-                                        </a>
-
-                                        <a href="#">
-                                            Contact Us
-                                        </a>
-
-                                        <a href="#">
-                                            FAQ
-                                        </a>
-
-                                        <a href="#">
-                                            Term Of Use
-                                        </a>
-
+                                        <a href="#">Shop Default Grid</a>
+                                        <a href="#">Shop Left Sidebar</a>
+                                        <a href="#">Shop Right Sidebar</a>
+                                        <a href="#">Shop Category</a>
+                                        <a href="#">Shopping Cart</a>
+                                        <a href="#">Checkout</a>
+                                        <a href="#">My account</a>
                                     </div>
 
                                 )}
 
 
-                                {/* BLOG */}
+                                {/* PAGES SUBMENU */}
+
+                                {mobileSubmenu === 'Pages' && (
+
+                                    <div className="mobile-submenu">
+                                        <a href="#">About Us</a>
+                                        <a href="#">Contact Us</a>
+                                        <a href="#">FAQ</a>
+                                        <a href="#">Term Of Use</a>
+                                    </div>
+
+                                )}
+
+
+                                {/* VEGETABLES SUBMENU */}
+
+                                {mobileSubmenu === 'Vegetables' && (
+
+                                    <div className="mobile-submenu">
+                                        <a href="#">Asparagus</a>
+                                        <a href="#">Beans &amp; Peas</a>
+                                        <a href="#">Beetroot &amp; Radish</a>
+                                        <a href="#">Broccoli &amp; Cauliflower</a>
+                                        <a href="#">Cabbage &amp; Kale</a>
+                                        <a href="#">Celery &amp; Fennel</a>
+                                        <a href="#">Carrots &amp; Root</a>
+                                    </div>
+
+                                )}
+
+
+                                {/* BLOG SUBMENU */}
 
                                 {mobileSubmenu === 'Blog' && (
 
                                     <div className="mobile-submenu">
-
-                                        <a href="#">
-                                            Blog Grid
-                                        </a>
-
-                                        <a href="#">
-                                            Blog List
-                                        </a>
-
-                                        <a href="#">
-                                            Single Post
-                                        </a>
-
+                                        <a href="#">Blog Grid</a>
+                                        <a href="#">Blog List</a>
+                                        <a href="#">Single Post</a>
                                     </div>
 
+                                )}
+
+                                {!mobileSubmenu && (
+                                    <div className="mobile-drawer-social">
+                                        <a href="#"><FaFacebookF /></a>
+                                        <a href="#"><FaInstagram /></a>
+                                        <a href="#"><FaLinkedinIn /></a>
+                                        <a href="#"><FaPinterestP /></a>
+                                    </div>
                                 )}
 
                             </div>
@@ -733,26 +705,17 @@ function Navbar() {
                                 </div>
 
                                 <button className="mobile-menu-item">
-                                    <span>
-                                        Vegetables
-                                    </span>
-
+                                    <span>Vegetables</span>
                                     <FaChevronRight />
                                 </button>
 
                                 <button className="mobile-menu-item">
-                                    <span>
-                                        Fruits
-                                    </span>
-
+                                    <span>Fruits</span>
                                     <FaChevronRight />
                                 </button>
 
                                 <button className="mobile-menu-item">
-                                    <span>
-                                        Meat &amp; Poultry
-                                    </span>
-
+                                    <span>Meat &amp; Poultry</span>
                                     <FaChevronRight />
                                 </button>
 

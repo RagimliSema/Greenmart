@@ -255,6 +255,33 @@
         gap: 17px;
     }
 
+    .mobile-header-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 24px;
+        height: 24px;
+
+        padding: 0;
+        border: none;
+        background: transparent;
+
+        color: #222;
+        cursor: pointer;
+    }
+
+    .mobile-menu-toggle svg {
+        width: 19px;
+        height: 19px;
+    }
+
     .mobile-header-icon {
         position: relative;
 

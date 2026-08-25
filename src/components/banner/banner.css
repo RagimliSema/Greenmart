@@ -19,3 +19,91 @@
   display: block;
   object-fit: cover;
 }
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .promo-banners {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+
+    padding: 20px;
+    gap: 15px;
+
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .promo-card {
+    width: 100%;
+  }
+
+  .promo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .promo-banners {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+
+    padding: 15px 10px 30px;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .promo-card {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .promo-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+  .promo-banners {
+    width: 100%;
+    padding: 10px 6px 25px;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 8px;
+  }
+
+  .promo-card {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .promo-card img {
+    width: 100%;
+    height: auto;
+  }
+}

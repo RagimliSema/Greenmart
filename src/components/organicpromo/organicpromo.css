@@ -180,47 +180,23 @@
 @media (max-width: 900px) {
 
     .organic-promo {
-        gap: 40px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
 
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .organic-promo-image {
-        flex: 0 0 50%;
-        width: 50%;
-    }
-
-    .organic-promo-content h2 {
-        font-size: 28px;
-    }
-
-    .organic-subtitle {
-        font-size: 16px;
-    }
-
-    .organic-text {
-        font-size: 14px;
-    }
-}
-
-
-@media (max-width: 700px) {
-
-    .organic-promo {
-        flex-direction: column;
-
-        align-items: stretch;
+        padding: 40px 20px 60px;
 
         gap: 35px;
     }
 
     .organic-promo-image {
-        width: 100%;
-        flex: none;
+        flex: 0 0 48%;
+        width: 48%;
     }
 
     .organic-promo-content {
+        flex: 1;
+        min-width: 0;
         padding-right: 0;
     }
 
@@ -231,29 +207,181 @@
     .organic-subtitle {
         font-size: 16px;
     }
+
+    .organic-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
 }
 
 
-@media (max-width: 500px) {
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
 
     .organic-promo {
-        padding: 35px 15px 50px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+
+        padding: 30px 15px 45px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 30px;
     }
 
-    .organic-promo-content h2 {
-        font-size: 24px;
+
+    /* IMAGE */
+
+    .organic-promo-image {
+        width: 100%;
+        flex: none;
     }
+
+    .organic-promo-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+
+    /* BADGE */
+
+    .organic-badge {
+        width: 42%;
+        height: 65px;
+
+        font-size: 12px;
+    }
+
+
+    /* CONTENT */
+
+    .organic-promo-content {
+        width: 100%;
+        padding-right: 0;
+    }
+
+
+    /* TITLE */
+
+    .organic-promo-content h2 {
+        font-size: 26px;
+        line-height: 1.2;
+
+        margin-bottom: 12px;
+    }
+
+
+    /* SUBTITLE */
 
     .organic-subtitle {
         font-size: 15px;
+        line-height: 1.4;
+
+        margin-bottom: 16px;
     }
 
+
+    /* TEXT */
+
     .organic-text {
+        width: 100%;
+        max-width: none;
+
         font-size: 14px;
+        line-height: 1.6;
+
+        margin-bottom: 24px;
     }
+
+
+    /* BUTTON */
 
     .organic-shop-btn {
         padding: 12px 28px;
+
         font-size: 14px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    .organic-promo {
+        width: 100%;
+        padding: 25px 10px 40px;
+
+        gap: 25px;
+    }
+
+
+    /* IMAGE */
+
+    .organic-promo-image {
+        width: 100%;
+    }
+
+    .organic-promo-image img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    /* BADGE */
+
+    .organic-badge {
+        width: 40%;
+        height: 55px;
+
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+
+    /* TITLE */
+
+    .organic-promo-content h2 {
+        font-size: 23px;
+        line-height: 1.2;
+
+        margin-bottom: 10px;
+    }
+
+
+    /* SUBTITLE */
+
+    .organic-subtitle {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+
+    /* TEXT */
+
+    .organic-text {
+        font-size: 13px;
+        line-height: 1.6;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* BUTTON */
+
+    .organic-shop-btn {
+        padding: 11px 24px;
+
+        font-size: 13px;
     }
 }

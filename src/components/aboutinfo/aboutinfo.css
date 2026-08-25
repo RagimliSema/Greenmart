@@ -63,3 +63,134 @@
     font-size: 19px;
     font-weight: 600;
 }
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .about-info {
+        padding: 35px 20px;
+    }
+
+    .about-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .about-cards {
+        max-width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .about-card {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .about-card-icon {
+        font-size: 48px;
+    }
+
+    .about-card-title {
+        font-size: 13px;
+    }
+
+    .about-card-value {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .about-info {
+        padding: 30px 15px;
+    }
+
+    .about-text {
+        width: 100%;
+        max-width: none;
+
+        font-size: 13px;
+        line-height: 1.7;
+
+        text-align: justify;
+
+        margin-bottom: 20px;
+    }
+
+    .about-cards {
+        width: 100%;
+        max-width: none;
+
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .about-card {
+        width: 100%;
+        box-sizing: border-box;
+
+        padding: 15px 18px;
+
+        gap: 18px;
+    }
+
+    .about-card-icon {
+        font-size: 45px;
+    }
+
+    .about-card-title {
+        font-size: 13px;
+    }
+
+    .about-card-value {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    .about-info {
+        padding: 25px 10px;
+    }
+
+    .about-text {
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    .about-cards {
+        gap: 8px;
+    }
+
+    .about-card {
+        padding: 13px 14px;
+        gap: 15px;
+    }
+
+    .about-card-icon {
+        font-size: 40px;
+    }
+
+    .about-card-title {
+        font-size: 12px;
+    }
+
+    .about-card-value {
+        font-size: 16px;
+    }
+}

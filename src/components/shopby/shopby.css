@@ -69,3 +69,114 @@
     color: #222;
     text-align: center;
 }
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .shop-by-category {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .category-grid {
+        width: 100%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .category-item {
+        width: 100%;
+        min-width: 0;
+        aspect-ratio: 1 / 1;
+        box-sizing: border-box;
+        padding: 10px 6px;
+    }
+
+    .category-image {
+        width: 100%;
+        height: 90px;
+        margin-bottom: 10px;
+    }
+
+    .category-name {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .shop-by-category {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        padding: 18px 10px 30px;
+    }
+
+    .category-grid {
+        width: 100%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .category-item {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        padding: 8px 5px;
+    }
+
+    .category-image {
+        width: 100%;
+        height: 80px;
+        margin-bottom: 8px;
+    }
+
+    .category-name {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    .shop-by-category {
+        width: 100%;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .category-grid {
+        width: 100%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .category-item {
+        width: 100%;
+        padding: 6px 4px;
+    }
+
+    .category-image {
+        width: 100%;
+        height: 75px;
+        margin-bottom: 6px;
+    }
+
+    .category-name {
+        font-size: 11px;
+    }
+}

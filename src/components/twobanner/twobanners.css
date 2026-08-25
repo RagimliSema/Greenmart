@@ -19,3 +19,84 @@
     display: block;
     object-fit: cover;
 }
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .two-banners {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .two-banner-card {
+        width: 100%;
+    }
+
+    .two-banner-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .two-banners {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+
+        padding: 15px 10px 30px;
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .two-banner-card {
+        width: 100%;
+    }
+
+    .two-banner-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    .two-banners {
+        padding: 10px 6px 25px;
+        gap: 10px;
+    }
+
+    .two-banner-card {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .two-banner-card img {
+        width: 100%;
+        height: auto;
+    }
+}
