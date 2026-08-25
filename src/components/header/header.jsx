@@ -3,13 +3,19 @@ import './header.css';
 import {
     FaRegUser,
     FaPhone,
-    FaCartShopping
+    FaCartShopping,
+    FaHeart,
+    FaSearch
 } from "react-icons/fa6";
 
 function Header({ cartCount, cartTotal }) {
 
     return (
         <header className='header'>
+
+            {/* =========================
+                DESKTOP HEADER
+            ========================= */}
 
             <div className="header-container">
 
@@ -86,6 +92,40 @@ function Header({ cartCount, cartTotal }) {
                         </div>
 
                     </div>
+
+                </div>
+
+            </div>
+
+
+            {/* =========================
+                MOBILE HEADER
+            ========================= */}
+
+            <div className="mobile-header">
+
+                <div className="mobile-logo">
+                    <img
+                        src="https://el3.thembaydev.com/greenmart_fresh/wp-content/uploads/2021/10/logo.svg"
+                        alt="GreenMart"
+                    />
+                </div>
+
+                <div className="mobile-header-actions">
+
+                    <button className="mobile-header-icon">
+                        <FaHeart />
+
+                        {cartCount > 0 && (
+                            <span className="mobile-wishlist-count">
+                                {cartCount}
+                            </span>
+                        )}
+                    </button>
+
+                    <button className="mobile-header-icon">
+                        <FaSearch />
+                    </button>
 
                 </div>
 

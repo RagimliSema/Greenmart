@@ -8,7 +8,7 @@
     position: relative;
     z-index: 5;
     height: 42px;
- 
+
 }
 
 .navbar ul {
@@ -423,4 +423,459 @@
         dropdownFadeOutCentered 0.3s ease forwards;
 
     pointer-events: none;
+}
+
+
+/* =========================================================
+   MOBILE NAVBAR
+========================================================= */
+
+.mobile-navbar {
+    display: none;
+}
+
+
+/* =========================================================
+   MOBILE DRAWER
+========================================================= */
+
+.mobile-drawer {
+    display: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    /* Desktop navbar gizlənir */
+
+    .desktop-navbar {
+        display: none;
+    }
+
+
+    /* =========================
+       MOBILE NAVBAR
+    ========================= */
+
+    .mobile-navbar {
+
+        width: 100%;
+        height: 44px;
+
+        display: flex;
+        align-items: stretch;
+
+        background: #fff;
+
+        border-bottom: 1px solid #eeeeee;
+
+        position: relative;
+        z-index: 900;
+    }
+
+
+    .mobile-nav-tab {
+
+        flex: 1;
+
+        height: 44px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        border: none;
+        border-right: 1px solid #eeeeee;
+
+        background: #fff;
+
+        color: #aaa;
+
+        font-size: 14px;
+
+        cursor: pointer;
+
+        transition:
+            color 0.2s ease,
+            background 0.2s ease;
+    }
+
+
+    .mobile-nav-tab:last-child {
+        border-right: none;
+    }
+
+
+    .mobile-nav-tab svg {
+        width: 15px;
+        height: 15px;
+    }
+
+
+    .mobile-nav-tab.active,
+    .mobile-nav-tab:hover {
+        color: #4caf50;
+    }
+
+
+    /* =========================
+       OVERLAY
+    ========================= */
+
+    .mobile-drawer-overlay {
+
+        position: fixed;
+
+        top: 96px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: rgba(0, 0, 0, 0.58);
+
+        z-index: 1998;
+
+        animation: mobileOverlayIn 0.25s ease forwards;
+    }
+
+
+    @keyframes mobileOverlayIn {
+
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+
+    }
+
+
+    /* =========================
+       DRAWER
+    ========================= */
+
+    .mobile-drawer {
+
+        position: fixed;
+
+        top: 96px;
+        left: 0;
+
+        width: min(440px, 50vw);
+
+        min-width: 320px;
+
+        height: calc(100vh - 96px);
+
+        display: flex;
+        flex-direction: column;
+
+        background: #fff;
+
+        z-index: 1999;
+
+        box-shadow:
+            4px 0 15px rgba(0, 0, 0, 0.12);
+
+        animation: mobileDrawerIn 0.28s ease forwards;
+
+        overflow: hidden;
+    }
+
+
+    @keyframes mobileDrawerIn {
+
+        from {
+            transform: translateX(-100%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+
+    }
+
+
+    /* =========================
+       DRAWER TABS
+    ========================= */
+
+    .mobile-drawer-tabs {
+
+        width: 100%;
+
+        height: 44px;
+
+        flex-shrink: 0;
+
+        display: flex;
+
+        border-bottom: 1px solid #eeeeee;
+    }
+
+
+    .mobile-drawer-tabs button {
+
+        flex: 1;
+
+        height: 44px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        border: none;
+
+        background: #fff;
+
+        color: #aaa;
+
+        font-size: 14px;
+
+        cursor: pointer;
+
+        border-right: 1px solid #eeeeee;
+    }
+
+
+    .mobile-drawer-tabs button:last-child {
+        border-right: none;
+    }
+
+
+    .mobile-drawer-tabs button.active {
+        color: #4caf50;
+    }
+
+
+    .mobile-drawer-tabs svg {
+        width: 15px;
+        height: 15px;
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .mobile-menu-content {
+
+        flex: 1;
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+
+        background: #fff;
+
+        scrollbar-width: thin;
+    }
+
+
+    /* =========================
+       TITLE
+    ========================= */
+
+    .mobile-drawer-title {
+
+        height: 46px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-bottom: 1px solid #e5e5e5;
+
+        color: #222;
+
+        font-size: 15px;
+
+        font-weight: 500;
+    }
+
+
+    /* =========================
+       MENU ITEM
+    ========================= */
+
+    .mobile-menu-item {
+
+        width: 100%;
+
+        min-height: 50px;
+
+        padding: 0 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        border: none;
+        border-bottom: 1px solid #e5e5e5;
+
+        background: #fff;
+
+        color: #222;
+
+        font-size: 14px;
+
+        text-align: left;
+
+        cursor: pointer;
+
+        transition:
+            background 0.2s ease,
+            color 0.2s ease;
+    }
+
+
+    .mobile-menu-item:hover {
+        background: #f8f8f8;
+    }
+
+
+    .mobile-menu-item.active-item {
+        color: #4caf50;
+    }
+
+
+    .mobile-menu-item svg {
+        width: 12px;
+        height: 12px;
+
+        color: #777;
+    }
+
+
+    /* =========================
+       BACK BUTTON
+    ========================= */
+
+    .mobile-back-button {
+
+        width: 100%;
+
+        height: 50px;
+
+        padding: 0 16px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        border: none;
+        border-bottom: 1px solid #e5e5e5;
+
+        background: #fff;
+
+        color: #222;
+
+        font-size: 14px;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-back-button svg {
+        width: 13px;
+        height: 13px;
+
+        color: #4caf50;
+    }
+
+
+    /* =========================
+       SUBMENU
+    ========================= */
+
+    .mobile-submenu {
+
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .mobile-submenu a {
+
+        min-height: 50px;
+
+        padding: 0 16px;
+
+        display: flex;
+        align-items: center;
+
+        border-bottom: 1px solid #e5e5e5;
+
+        color: #222;
+
+        text-decoration: none;
+
+        font-size: 14px;
+
+        transition:
+            background 0.2s ease,
+            color 0.2s ease;
+    }
+
+
+    .mobile-submenu a:hover {
+        background: #f8f8f8;
+        color: #4caf50;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .mobile-drawer {
+
+        width: 85vw;
+        min-width: 0;
+        max-width: 360px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .mobile-drawer {
+
+        width: 90vw;
+
+    }
+
+    .mobile-nav-tab {
+
+        font-size: 13px;
+
+    }
+
+    .mobile-drawer-tabs button {
+
+        font-size: 13px;
+
+    }
+
 }

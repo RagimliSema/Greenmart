@@ -1,3 +1,7 @@
+/* =========================
+   HEADER
+========================= */
+
 .header {
     position: sticky;
     top: 0;
@@ -6,6 +10,7 @@
     z-index: 1000;
     background: #fff;
 }
+
 .header-container {
     max-width: 1150px;
     height: 70px;
@@ -24,6 +29,12 @@
     font-weight: 700;
     color: #4caf50;
     white-space: nowrap;
+}
+
+.logo img {
+    display: block;
+    width: auto;
+    max-width: 150px;
 }
 
 .search {
@@ -178,4 +189,144 @@
 
     font-size: 13px;
     font-weight: 600;
+}
+
+
+/* =========================
+   MOBILE HEADER
+========================= */
+
+.mobile-header {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .header {
+        position: relative;
+        top: auto;
+        z-index: 1000;
+    }
+
+    /* Desktop header gizlənir */
+    .header-container {
+        display: none;
+    }
+
+    /* Mobile header görünür */
+    .mobile-header {
+        width: 100%;
+        height: 52px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 18px;
+
+        box-sizing: border-box;
+
+        background: #fff;
+
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .mobile-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-logo img {
+        display: block;
+
+        width: 115px;
+        height: auto;
+    }
+
+    .mobile-header-actions {
+        display: flex;
+        align-items: center;
+
+        gap: 17px;
+    }
+
+    .mobile-header-icon {
+        position: relative;
+
+        width: 24px;
+        height: 30px;
+
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: none;
+        background: transparent;
+
+        color: #222;
+
+        cursor: pointer;
+    }
+
+    .mobile-header-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .mobile-wishlist-count {
+        position: absolute;
+
+        top: -3px;
+        right: -7px;
+
+        min-width: 15px;
+        height: 15px;
+
+        padding: 0 3px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #f2a93c;
+        color: white;
+
+        border-radius: 50%;
+
+        font-size: 9px;
+        line-height: 1;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .mobile-header {
+        height: 50px;
+        padding: 0 14px;
+    }
+
+    .mobile-logo img {
+        width: 105px;
+    }
+
+    .mobile-header-actions {
+        gap: 14px;
+    }
+
+    .mobile-header-icon svg {
+        width: 17px;
+        height: 17px;
+    }
 }
